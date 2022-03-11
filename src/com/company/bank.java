@@ -2,20 +2,20 @@ package com.company;
 
 import java.util.Scanner;
 
-public class bank {
+public class bank {                                             //parent class
     Scanner in = new Scanner(System.in);
     float n;
     float p;
     float g;
 
-    public int loan() {
+    public int loan() {                                         //method to print and input kind of loan from user
         System.out.println("select type of loan:");
         System.out.println("\n1.Personal loan\t2.housing loan\t3.educational loan\t4.gold loan");
         int lt = in.nextInt();
-        return lt;
+        return lt;                                             //returns the value to the respective bank class
     }
 
-    public void input() {
+    public void input() {                                       //method for inputting data for loans ->personal and home for each bank class
         System.out.println("Enter Loan Amount and Duration(in months)");
         System.out.println("Loan Amount:");
         p = in.nextFloat();
@@ -23,7 +23,7 @@ public class bank {
         n = in.nextFloat();
     }
 
-    public void education() {
+    public void education() {                                     //method for inputting data for education loan
         System.out.println("Education Loan");
         System.out.println("Enter Loan Amount ");
         System.out.println("Loan Amount:");
@@ -32,7 +32,7 @@ public class bank {
         n = 48F;
     }
 
-    public float calintrest(float r) {
+    public float calintrest(float r) {                          //method to calculate simple interest
 
         float x = (r / 12);
         float y = (x / 100);
@@ -48,7 +48,7 @@ public class bank {
         return interest;
     }
 
-    public void goldinput() {
+    public void goldinput() {                                   //method for inputting data for gold Loan
         System.out.println("Enter Loan Amount and Duration(in months)");
         System.out.println(" Amount of Gold in grams:");
         g = in.nextFloat();
@@ -56,7 +56,7 @@ public class bank {
         System.out.println("Loan Tenure (in Months max of 36 months):");
         n = in.nextFloat();
         System.out.println("Rate of Interest is 7");
-        p = 3939 * g;
+        p = 3939 * g;       //principal amount
     }
 
 }
@@ -69,7 +69,7 @@ class sbi extends bank {
         int lt = loan();
         System.out.println("selected Loan type is:" + lt);
         switch (lt) {
-            case 1:     //personal loan
+            case 1:
                 personal();
                 break;
             case 2:
@@ -86,20 +86,20 @@ class sbi extends bank {
 
     public float personal() {
 
-        input();
+        input();                    //call to input method in parent class
         System.out.println("Rate of Interest:(9.0-15.0)");
         float r = in.nextFloat();
-        float interest = calintrest(r);
+        float interest = calintrest(r);     //call to method for interest calculation
         System.out.println("\nEMI Is:" + interest + "for a time span of " + n + "months");
         System.out.println("\nTotal Amount Payable is:" + interest * n);
         return 0;
     }
 
     public float home() {
-        input();
+        input();                        //call to input method in parent class
         System.out.println("Rate of Interest is 7.5");
         float r = 7.5F;
-        float interest = calintrest(r);
+        float interest = calintrest(r);              //call to method for interest calculation
         System.out.println("\nHome Loan EMI Is:" + interest + "for a time span of " + n + " months ");
         System.out.println("\nTotal Amount Payable is:" + interest * n);
         return 0;
@@ -107,10 +107,10 @@ class sbi extends bank {
 
     public float edu() {
 
-        education();
+        education();                                     //call to input method in parent class
         System.out.println("Rate of Interest is 7.0");
         float r = 7.0F;
-        float interest = calintrest(r);
+        float interest = calintrest(r);                //call to method for interest calculation
         System.out.println("\nEducation Loan EMI Is:" + interest + "for a time span of " + n + " months ");
         System.out.println("\nTotal Amount Payable is:" + interest * n);
         return 0;
@@ -118,9 +118,9 @@ class sbi extends bank {
 
     public float gold() {
 
-        goldinput();
+        goldinput();                              //call to input method in parent class
         float r = 7.0F;
-        float interest = calintrest(r);
+        float interest = calintrest(r);              //call to method for interest calculation
         System.out.println("\nGold Loan EMI Is:" + interest + " for a time span of " + n + " \tmonths ");
         System.out.println("\nTotal Amount Payable is:" + interest * n);
         return 0;
