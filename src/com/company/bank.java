@@ -9,18 +9,19 @@ public class bank {                                             //parent class
     float g;
 
     public int loan() {                                         //method to print and input kind of loan from user
-        System.out.println("select type of loan:");
+        System.out.println("\nselect type of loan:");
         System.out.println("\n1.Personal loan\t2.housing loan\t3.educational loan\t4.gold loan");
-        int lt = in.nextInt();
-        return lt;                                             //returns the value to the respective bank class
+        System.out.println("-------------------------------------------------------------------");
+        return in.nextInt();                                             //returns the value to the respective bank class
     }
 
     public void input() {                                       //method for inputting data for loans ->personal and home for each bank class
-        System.out.println("Enter Loan Amount and Duration(in months)");
-        System.out.println("Loan Amount:");
+        System.out.println("\nEnter Loan Amount and Duration(in months)");
+        System.out.println("\nLoan Amount:");
         p = in.nextFloat();
-        System.out.println("Loan Tenure(in Months:");
+        System.out.println("Loan Tenure(in Months):");
         n = in.nextFloat();
+        System.out.println("-------------------------------------------------------------------");
     }
 
     public void education() {                                     //method for inputting data for education loan
@@ -28,8 +29,9 @@ public class bank {                                             //parent class
         System.out.println("Enter Loan Amount ");
         System.out.println("Loan Amount:");
         p = in.nextFloat();
-        System.out.println("Loan Tenure id 4 years:");
+        System.out.println("Loan Tenure is 4 years:");
         n = 48F;
+        System.out.println("-------------------------------------------------------------------");
     }
 
     public float calintrest(float r) {                          //method to calculate simple interest
@@ -43,20 +45,22 @@ public class bank {                                             //parent class
         for (int i = 0; i < n; i++) {
             pow *= y;
         }
-        float interest = p * c * (pow / (pow - 1));
 
-        return interest;
+        return p * c * (pow / (pow - 1));
     }
 
     public void goldinput() {                                   //method for inputting data for gold Loan
-        System.out.println("Enter Loan Amount and Duration(in months)");
-        System.out.println(" Amount of Gold in grams:");
+
+        System.out.println("\nAmount of Gold in grams:");
         g = in.nextFloat();
-        System.out.println("today's price is  Rs:3939 for a gram");
-        System.out.println("Loan Tenure (in Months max of 36 months):");
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("\nToday's price is  Rs:3939 for a gram");
+        System.out.println("\nLoan Tenure (in Months max of 36 months):");
         n = in.nextFloat();
         System.out.println("Rate of Interest is 7");
+        System.out.println("-------------------------------------------------------------------");
         p = 3939 * g;       //principal amount
+
     }
 
 }
@@ -69,18 +73,10 @@ class sbi extends bank {
         int lt = loan();
         System.out.println("selected Loan type is:" + lt);
         switch (lt) {
-            case 1:
-                personal();
-                break;
-            case 2:
-                home();
-                break;
-            case 3:
-                edu();
-                break;
-            case 4:
-                gold();
-                break;
+            case 1 -> personal();
+            case 2 -> home();
+            case 3 -> edu();
+            case 4 -> gold();
         }
     }
 
@@ -113,6 +109,7 @@ class sbi extends bank {
         float interest = calintrest(r);                //call to method for interest calculation
         System.out.println("\nEducation Loan EMI Is:" + interest + "for a time span of " + n + " months ");
         System.out.println("\nTotal Amount Payable is:" + interest * n);
+
         return 0;
     }
 
@@ -121,8 +118,9 @@ class sbi extends bank {
         goldinput();                              //call to input method in parent class
         float r = 7.0F;
         float interest = calintrest(r);              //call to method for interest calculation
-        System.out.println("\nGold Loan EMI Is:" + interest + " for a time span of " + n + " \tmonths ");
+        System.out.println("\nGold Loan EMI Is:" + interest + " for a time span of " + n + "\tmonths ");
         System.out.println("\nTotal Amount Payable is:" + interest * n);
+
         return 0;
     }
 
@@ -137,18 +135,11 @@ class sib extends bank {
         int lt = loan();
         System.out.println("selected Loan type is:" + lt);
         switch (lt) {
-            case 1:     //personal loan
-                personal();
-                break;
-            case 2:
-                home();
-                break;
-            case 3:
-                edu();
-                break;
-            case 4:
-                gold();
-                break;
+            case 1 ->     //personal loan
+                    personal();
+            case 2 -> home();
+            case 3 -> edu();
+            case 4 -> gold();
         }
     }
 
@@ -205,18 +196,11 @@ class hdfc extends bank {
         int lt = loan();
         System.out.println("selected Loan type is:" + lt);
         switch (lt) {
-            case 1:     //personal loan
-                personal();
-                break;
-            case 2:
-                home();
-                break;
-            case 3:
-                edu();
-                break;
-            case 4:
-                gold();
-                break;
+            case 1 ->     //personal loan
+                    personal();
+            case 2 -> home();
+            case 3 -> edu();
+            case 4 -> gold();
         }
     }
 
@@ -272,18 +256,11 @@ class federal extends bank {
         int lt = loan();
         System.out.println("selected Loan type is:" + lt);
         switch (lt) {
-            case 1:     //personal loan
-                personal();
-                break;
-            case 2:
-                home();
-                break;
-            case 3:
-                edu();
-                break;
-            case 4:
-                gold();
-                break;
+            case 1 ->     //personal loan
+                    personal();
+            case 2 -> home();
+            case 3 -> edu();
+            case 4 -> gold();
         }
     }
 
